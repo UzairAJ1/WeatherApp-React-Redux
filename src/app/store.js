@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoSlice from "../features/todo/todoSlice";
+import weatherSlice from "../features/weather/weatherSlice";
 export const store = configureStore({
-  reducer: {todo:todoSlice},
+  reducer: {weather:weatherSlice},
 });

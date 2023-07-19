@@ -1,7 +1,7 @@
 
 import React, { useState,useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { getAllUsers,addCity } from '../features/todo/todoSlice';
+import { getAllWeather,addCity } from '../features/weather/weatherSlice';
 import getLocation from './getLocation';
 const Hero = () => {
   const [location, setLocation] = useState(null);
@@ -15,12 +15,12 @@ const Hero = () => {
 
   
   const dispatch=useDispatch();
-  const usersData=useSelector((state)=>state.todo)
-  console.log(usersData);
+  const weatherData=useSelector((state)=>state.weather)
+ 
   const [redux,setRedux]=useState(false);
   const [city,setCity]=useState("");
   
-  if(usersData.isLoading)
+  if(weatherData.isLoading)
   {
     return (
       <h1>...Loading</h1>
@@ -29,7 +29,7 @@ const Hero = () => {
   const handlesubmit=()=>
   {
     dispatch(addCity(location.city))
-    dispatch(getAllUsers());
+    dispatch(getAllWeather());
     
     
     setRedux(true);
@@ -38,7 +38,7 @@ const Hero = () => {
   const handleSelected=()=>
   {
     dispatch(addCity(city));
-    dispatch(getAllUsers());
+    dispatch(getAllWeather());
     setRedux(true);
   }
   
@@ -62,16 +62,16 @@ const Hero = () => {
       { redux &&
       <div className='text-white mt-6'>
       <h1 >Weather Data</h1>
-      <div >Location : {usersData.users.name}</div>
-      <div >ID : {usersData.users.id}</div>
-      <div >TimeZone : {usersData.users.timezone}</div>
-      <div >{usersData.users.sys.country}</div>
-      <div >Temp : {usersData.users.main.temp}</div>
-      <div >{usersData.users.weather.main}</div>
-      { usersData.users.weather.map((user, index) => (
+      <div >Location : {weatherData.data.name}</div>
+      <div >ID : {weatherData.data.id}</div>
+      <div >TimeZone : {weatherData.data.timezone}</div>
+      <div >{weatherData.data.sys.country}</div>
+      <div >Temp : {weatherData.data.main.temp}</div>
+      <div >{weatherData.data.weather.main}</div>
+      { weatherData.data.weather.map((data, index) => (
       <>
-        <div className='text-white' key={index}>Weather:  {user.main}</div>
-        <div className='text-white'>Description :  {user.description}</div>
+        <div className='text-white' key={index}>Weather:  {data.main}</div>
+        <div className='text-white'>Description :  {data.description}</div>
         </>
         
     
