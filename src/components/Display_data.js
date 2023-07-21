@@ -7,7 +7,7 @@ const Display_data = () => {
   return (
    <>
    <div className='text-white mt-6'>
-      <h1 >Weather Data</h1>
+      <h1 className='text-xl font-bold'>Weather Data</h1>
       <div >Location : {weatherData.data.name}</div>
       <div >ID : {weatherData.data.id}</div>
       <div >TimeZone : {weatherData.data.timezone}</div>
