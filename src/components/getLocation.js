@@ -9,9 +9,9 @@ async function getCityFromCoordinates(latitude, longitude) {
       }
   
       const data = await response.json();
-      console.log(data)
       
-      const city = data.address.country // Provide a default value if city is not available
+      
+      const city = data.address.country || "City not fetched";
     
       return city;
     } catch (error) {
@@ -32,6 +32,7 @@ const getLocation=({setLocation,setLoading,setError})=>
               {
                 const cites= await getCityFromCoordinates(position.coords.latitude,position.coords.longitude)
                 return cites;
+                console.log(cites)
               }
             getCity().then((e)=>
             {
