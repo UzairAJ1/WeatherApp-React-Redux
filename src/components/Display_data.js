@@ -24,17 +24,7 @@ const Display_data = () => {
      
       ))}
          
-{/* {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : location ? (
-        <div>
-          <p>Latitude: {location.latitude}</p>
-          <p>Longitude: {location.longitude}</p>
-          <h1>city:{location.city} </h1>
-        </div>
-      ) : null} */}
+
       </div></>
   )
 }
