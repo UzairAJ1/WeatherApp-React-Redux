@@ -18,7 +18,7 @@ const Hero = () => {
 
   const dispatch = useDispatch();
   const weatherData = useSelector((state) => state.weather)
-
+  console.log("weather data:",weatherData)
   const [redux, setRedux] = useState(false);
   const [city, setCity] = useState("");
 
@@ -65,9 +65,8 @@ const Hero = () => {
     
      
       ))} */}
-          {redux &&
-            <Display_data />
-          }
+          {weatherData?.data?.message==="city not found"?( <h1 className='text-red-500 mt-12'>Enter valid city name</h1>):(<Display_data />)}
+     {/* {redux &&  <Display_data /> } */}
           <div className='mt-10 text-white flex flex-col items-center justify-center gap-5'>
             <h1>Or Search any City or Country</h1>
             <input className="text-black" onChange={(e) => { setCity(e.target.value) }} />
