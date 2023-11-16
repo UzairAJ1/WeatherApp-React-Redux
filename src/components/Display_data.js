@@ -12,7 +12,7 @@ const Display_data = () => {
   console.log("lat:", weatherData.data.coord.lon);
   const customIcon = new L.Icon({
     iconUrl: MarkerImg,
-    iconSize: [50, 60],
+    iconSize: [40, 50],
     iconAnchor: [10, 10],
     popupAnchor: [0, -10],
   });
@@ -40,7 +40,7 @@ const Display_data = () => {
           <MapContainer
             style={{ height: 500 }}
             center={[weatherData.data.coord.lat, weatherData.data.coord.lon]}
-            zoom={10}
+            zoom={7}
             scrollWheelZoom={false}
           >
             <TileLayer
