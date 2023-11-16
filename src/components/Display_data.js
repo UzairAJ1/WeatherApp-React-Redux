@@ -12,7 +12,7 @@ const Display_data = () => {
   console.log("lat:", weatherData.data.coord.lon);
   const customIcon = new L.Icon({
     iconUrl: MarkerImg,
-    iconSize: [40, 50],
+    iconSize: [30, 50],
     iconAnchor: [10, 10],
     popupAnchor: [0, -10],
   });
