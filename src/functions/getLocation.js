@@ -22,7 +22,7 @@ async function getCityFromCoordinates(latitude, longitude) {
 
 const getLocation = ({ setLocation, setLoading, setError }) => {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.watchPosition(
      async (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
@@ -39,7 +39,8 @@ const getLocation = ({ setLocation, setLoading, setError }) => {
       (error) => {
         setError(error.message);
         setLoading(false);
-      }
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
     );
   } else {
     setError("Geolocation is not supported by your browser.");
