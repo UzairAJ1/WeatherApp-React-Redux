@@ -47,7 +47,7 @@ const Hero = () => {
       setRedux(true);
     }
     else{
-      
+alert("City name should not be empty");
     }
    
   }
@@ -56,7 +56,7 @@ const Hero = () => {
     <>
  
 
-      <div className={`w-full ${redux?"h-[2000px]":"h-screen"}  bg-[#1C2257] flex flex-col gap-6 items-center justify-center`}>
+      <div className={`w-full ${redux? "h-[2000px]":"h-screen"}  bg-[#1C2257] flex flex-col gap-6 items-center justify-center`}>
         <h1 className='text-white text-xl font-bold'>My Weather app</h1>
         <div className='w-5/6 h-5/6 bg-[#061543] rounded-3xl flex flex-col items-center gap-6'>
           {/* <input onChange={(e)=>setCity(e.target.value)}/> */}
